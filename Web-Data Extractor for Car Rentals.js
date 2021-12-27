@@ -229,8 +229,6 @@ module.exports = async function (input) {
             throw `NAVIGATION ERROR: ${e}`;
         }
     }
-
-
     const { iata, pickupDate, dropoffDate, carGroups, _url } = input;
 
     let pickupDateVal = Array.isArray(pickupDate) ? pickupDate[0] : pickupDate;
@@ -291,34 +289,7 @@ module.exports = async function (input) {
     .then(r => r.json())
 
     console.log(IATAlist);
-
-    // try {
-    //     await extractorContext.solveCaptcha({
-    //         type: 'FUNCAPTCHA',
-    //         inputElement: 'div#CAPTCHA'
-    //         });
-    // } catch (error) {
-    //         console.log('Captcha Error', error);
-    // }
-    // console.log('Till HEREEE 317');
-    //____________________
-    // const isReCaptcha = async () => {
-    //     console.log('..IsCaptcha..');
-    //     return await e.execute(() => {
-    //         return !!document.querySelector('#CAPTCHA');
-    //     });
-    // }
-  
-    // const solveCaptcha = async () => {
-    //     console.log('..solveCaptcha..');
-    //     await e.solveCaptcha({
-    //       type: 'FUNCAPTCHA',
-    //       inputElement: 'body',
-    //       autoSubmit: true
-    //     });
-    //     await new Promise(r => setTimeout(r, 1000));        
-    // }
-    //____________________
+_________
     var locationList = IATAlist.sr   
     var dpln = ''
     for (let index = 0; index < locationList.length; index++) {
@@ -326,12 +297,8 @@ module.exports = async function (input) {
             dpln = locationList[index].gaiaId                
         }          
     }
-
-
+  
     let listingUIUrl = "/* INPUT URL */" + iataVal + "&loc2=" + iataVal + "&date1=" + pickUpDay + "%2F" + pickUpMonth + "%2F" + pickUpYear + "&time1=" + time + "&date2=" + dropOffDay + "%2F" + dropOffMonth + "%2F" + dropOffYear + "&time2=" + time + "&subm=1";
-    
-   
-
     
     await extractorContext.goto(listingUIUrl);
     await new Promise(r=> setTimeout(r, 30000));
