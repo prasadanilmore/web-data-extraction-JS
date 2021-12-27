@@ -1,11 +1,11 @@
 module.exports = async function (input) {
-  // IMPORTING EXTRACTOR CONTEXT MODULE FOR EASY NAVIGATION IN WEB-PAGES
+  // IMPORTING A MODULE THAT WILL EASY NAVIGATION IN WEB-PAGES
 
     let hasCaptcha = false;
     let lastResponseData;
     let pageId;
 
-    var e = extractorContext;
+    var e = extractionModule; // Search for exraction modules and use
     let debugFlag = false;
     let proxyToDebugCaptcha = { host: "", port: "", username: "", password: "" }; // REPLACE AS NEEDED
     let isPageLoading, isPageLoadedWithHotels;
